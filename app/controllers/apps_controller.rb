@@ -62,8 +62,7 @@ class AppsController < ApplicationController
       @app = App.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def app_params
-      params.require(:app).permit(:name, :description, :status)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end
