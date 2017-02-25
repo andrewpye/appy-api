@@ -1,5 +1,6 @@
 class AppsController < ApplicationController
-  before_action :set_app, only: [:show, :update, :destroy]
+  before_action :set_user, :set_app
+  skip_before_filter :set_app, only: [ :index, :create ]
 
   # GET /apps
   def index
@@ -39,6 +40,12 @@ class AppsController < ApplicationController
   end
 
   private
+    # Grab the user from the authentication header
+    def set_user
+      user_id = request.headers["HTTP_USER_ID"]
+      @user = User.find(user_id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_app
       @app = App.find(params[:id])
