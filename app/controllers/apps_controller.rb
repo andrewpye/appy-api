@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   before_action :set_user, :set_app
-  skip_before_filter :set_app, only: [ :index, :create ]
+  skip_before_action :set_app, only: [ :index, :create ]
 
   # GET /apps
   def index
