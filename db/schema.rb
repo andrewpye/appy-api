@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170228073757) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "created_by_id"
-    t.string   "image"
     t.integer  "image_id"
     t.index ["created_by_id"], name: "index_apps_on_created_by_id"
     t.index ["image_id"], name: "index_apps_on_image_id"
