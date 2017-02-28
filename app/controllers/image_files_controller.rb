@@ -44,7 +44,6 @@ class ImageFilesController < ApplicationController
       @image_file = ImageFile.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def image_file_params
       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
