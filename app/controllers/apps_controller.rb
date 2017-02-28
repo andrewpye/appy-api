@@ -4,18 +4,7 @@ class AppsController < ApplicationController
 
   # GET /apps
   def index
-    query = nil
-
-    case @user.role
-    when "admin"
-      # Return all apps that are submitted or approved.
-      query = { status: [ "submitted", "approved" ] }
-    when "developer"
-      # Return the apps created by this user.
-      query = { created_by: @user }
-    end
-
-    @apps = App.where(query)
+    @apps = @user.apps
 
     render json: @apps
   end
