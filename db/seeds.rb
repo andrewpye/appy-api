@@ -14,5 +14,9 @@ users = User.create([
 	{
 		name: 'Dee Veloper',
 		role: 'developer'
+	},
+	{
+		name: 'Ben Gineer',
+		role: 'developer'
 	}
 ])

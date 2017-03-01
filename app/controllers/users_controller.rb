@@ -44,8 +44,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end

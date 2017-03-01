@@ -27,6 +27,10 @@ gem 'puma', '~> 3.0'
 
 gem 'active_model_serializers', '~> 0.10.2'
 
+# Accept file uploads as base64
+gem 'carrierwave'
+gem 'carrierwave-base64'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
