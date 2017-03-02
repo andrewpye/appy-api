@@ -31,7 +31,7 @@ class ImageFilesController < ApplicationController
   def update
     if @image_file.update(image_file_params)
       # Increment the version counter.
-      @image_file.increment(:version)
+      @image_file.increment!(:version)
 
       render json: @image_file
     else
