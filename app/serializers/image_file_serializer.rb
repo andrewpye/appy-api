@@ -1,3 +1,3 @@
 class ImageFileSerializer < ActiveModel::Serializer
-  attributes :id, :image
+  attributes :id, :image, :version
 end

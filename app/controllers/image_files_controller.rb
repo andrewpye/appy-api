@@ -17,6 +17,9 @@ class ImageFilesController < ApplicationController
   def create
     @image_file = ImageFile.new(image_file_params)
 
+    # Set the version counter to 1.
+    @image_file.version = 1
+
     if @image_file.save
       render json: @image_file, status: :created, location: @image_file
     else
@@ -27,6 +30,9 @@ class ImageFilesController < ApplicationController
   # PATCH/PUT /image_files/1
   def update
     if @image_file.update(image_file_params)
+      # Increment the version counter.
+      @image_file.increment(:version)
+
       render json: @image_file
     else
       render json: @image_file.errors, status: :unprocessable_entity
